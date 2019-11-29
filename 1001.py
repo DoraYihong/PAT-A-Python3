@@ -11,3 +11,4 @@ else:
         print(e[i], end="")
         if (len(e)-i) % 3 == 1 and i != len(e)-1:
             print(',', end="")
+# 手工检测并用逗号分隔，其实可以直接用format(a+b,',')
