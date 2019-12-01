@@ -1,6 +1,6 @@
 n, m, c1, c2 = map(int, input().split())
 rescue_num = list(map(int, input().split()))  # 索引表示的点的点权[每个城市中救援队的数量]
-route = [[0 for x in range(n)] for i in range(n)]  # 创建n*n的二维数组，存放L[点权，城市之间的距离]
+route = [[float('inf') for x in range(n)] for i in range(n)]  # 创建n*n的二维数组，存放L[点权，城市之间的距离]
 
 for i in range(m):
     x, y, z = map(int, input().split())
@@ -19,7 +19,7 @@ x = c1
 num[c1] = 1
 while is_visited[c2] is False:
     for i in range(n):  # 遍历起点x，找到起点x的邻接顶点
-        if route[x][i] != 0 and is_visited[i] is False:  # 遍历起点x，找到起点x的邻接顶点
+        if route[x][i] != float('inf') and is_visited[i] is False:  # 遍历起点x，找到起点x的邻接顶点
             # 先到x，再从x到i的距离，与已有的直接到i的距离进行比较
             if min_length[i] >= min_length[x] + route[x][i]:  # 如果距离表中x的距离+x到i的距离<=距离表中i的距离
                 if min_length[i] == min_length[x] + route[x][i]:  # 距离相等的情况
