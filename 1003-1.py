@@ -5,7 +5,7 @@ route = [[float('inf') for x in range(n)] for i in range(n)]  # 创建n*n的二�
 for i in range(m):
     x, y, z = map(int, input().split())
     route[x][y] = z
-#     route[y][x] = z
+    route[y][x] = z
 
 is_visited = [False for x in range(n)]
 min_length = [float("inf") for x in range(n)]  # 创建距离表，存放最短路径长度，float("inf")表示无穷大
