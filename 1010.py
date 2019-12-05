@@ -16,24 +16,23 @@ if tag == '2':
     n1 = n2
     n2 = t
 n1_d = transform(n1, radix)
-min_range = max(n2)
-if not n2.isdigit():
-    # print("not")
-    min_range = ord(min_range)-86
-else:
-    min_range = int(min_range)
-    if min_range < 2:
-        min_range = 2
-
-# print(min_range)
+min_range = max([int(x, 36) for x in n2]) + 1
+# 对分查找
+left = max(int(x, 36) for x in n2) + 1
+right = max(left, n1_d)
 radix2 = 0
-for i in range(min_range, 100):
-    if n1_d == transform(n2, i):
-        radix2 = i
+while left <= right:
+    middle = round((left + right) / 2)
+    t = transform(n2, middle)
+    if t == n1_d:
+        radix2 = middle
         break
+    else:
+        if t > n1_d:
+            right = middle - 1
+        else:
+            left = middle + 1
 if radix2 == 0:
     print("Impossible")
 else:
     print(radix2)
-
-# python
