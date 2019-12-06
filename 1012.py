@@ -1,6 +1,5 @@
 def rank(num, nums):
     array = list(nums)
-    array.sort(reverse=True)
     return 1 + array.index(num)
     # return 1
 
