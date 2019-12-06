@@ -1,10 +1,8 @@
 def rank(num, nums):
     array = list(nums)
-    rank_num = 1
-    while num != max(array):
-        del array[array.index(max(array))]
-        rank_num += 1
-    return rank_num
+    array.sort(reverse=True)
+    return 1 + array.index(num)
+    # return 1
 
 
 def output(s_id):
@@ -12,6 +10,7 @@ def output(s_id):
     temp = analyse[pos]
     pos = temp.index(min(temp))
     print(min(temp), acme[pos])
+    # print('1')
 
 
 n, m = list(map(int, input().split()))
